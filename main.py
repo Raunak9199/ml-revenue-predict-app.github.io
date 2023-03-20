@@ -53,10 +53,18 @@ def train_model():
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():
-    prediction = model.predict([[request.form.get('temperature')]])
-    output = round(prediction[0],2)
-    print(output)
-    return render_template("index.html", prediction_text = f"Total revenue generated id Rs. {output}/-")
+    # Convert input data to float
+    temperature = float(request.form.get('temperature'))
+
+    # Make prediction using the model
+    prediction = model.predict([[temperature]])
+
+    # Convert prediction to float and round to 2 decimal places
+    output = round(float(prediction[0]), 2)
+
+    # Render the result page with the predicted output
+    return render_template("result.html", prediction_text=f"Total revenue generated is (hundred crores) Rs. {output}/-")
+
 
 
 if __name__ == '__main__':

@@ -8,5 +8,13 @@
 </head>
 <body>
     {{total_score}}
+    <br>
+    <br>
+    <form action="{{url_for('predict')}}" method="post">
+    <input type="text" name="temperature" placeholder="Enter Temperature:">
+    <button type="submit">Predict</button>
+    </form>
+    
+    <h3><br>{{prediction_text}}</h3>
 </body>
 </html>
