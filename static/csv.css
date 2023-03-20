@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+ .btn-floating {
+		  position: fixed;
+		  bottom: 2rem;
+		  right: 2rem;
+		  width: 50px;
+		  height: 50px;
+		  border-radius: 50%;
+		  background: url('https://img.icons8.com/external-kosonicon-solid-kosonicon/48/null/external-right-arrow-arrows-set-2-kosonicon-solid-kosonicon.png') no-repeat center center;
+		  background-size: 70%;
+		  background-color: #5f7991;
+		  transition: background-color 0.3s ease;
+		}
+		.btn-floating:hover {
+			background-color: #2c5282;
+		}

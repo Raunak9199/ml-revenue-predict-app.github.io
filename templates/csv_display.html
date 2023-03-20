@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>    
+    <link rel="stylesheet" href="../static/csv.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <table id="csv-table">
+        {{ table_html|safe }}
+      </table>
+      <a href="#" class="btn-floating" onclick="sendCSV()"></a>
+
+      <script>
+        $('#train-form').submit(function(event) {
+          event.preventDefault();
+          var formData = new FormData($(this)[0]);
+          
+          $.ajax({
+            url: '/train',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+              $('#result').html('Model Score: ' + response.score);
+            },
+            error: function(xhr, status, error) {
+              alert('Error: ' + error);
+            }
+          });
+        });
+      </script>
+</body>
+</html>
+<!-- <script>
+    function sendCSV() {
+      // Get the HTML table as a string
+      var csv = document.getElementById('csv-table').innerHTML;
+      
+      // Make an AJAX request to the Flask server
+      $.ajax({
+        type: 'POST',
+        url: 'http://127.0.0.1:5000/train_model',
+        data: {csv: csv},
+        success: function(response) {
+          alert(response);
+        },
+        error: function(xhr, status, error) {
+          alert('Error: ' + error);
+        }
+      });
+    }
+  </script> -->
