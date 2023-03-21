@@ -9,7 +9,7 @@ from sklearn.metrics import r2_score
 
 app = Flask(__name__)
 
-model = pickle.load(open('model.pkl','rb'))
+
 
 @app.route('/')
 def index():
